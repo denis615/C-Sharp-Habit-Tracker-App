@@ -1,0 +1,12 @@
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\bin\Debug\netcoreapp2.1\HabitTrackerApp.deps.json
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\bin\Debug\netcoreapp2.1\HabitTrackerApp.runtimeconfig.json
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\bin\Debug\netcoreapp2.1\HabitTrackerApp.runtimeconfig.dev.json
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\bin\Debug\netcoreapp2.1\HabitTrackerApp.dll
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\bin\Debug\netcoreapp2.1\HabitTrackerApp.pdb
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\obj\Debug\netcoreapp2.1\HabitTrackerApp.csprojAssemblyReference.cache
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\obj\Debug\netcoreapp2.1\HabitTrackerApp.AssemblyInfoInputs.cache
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\obj\Debug\netcoreapp2.1\HabitTrackerApp.AssemblyInfo.cs
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\obj\Debug\netcoreapp2.1\HabitTrackerApp.dll
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\obj\Debug\netcoreapp2.1\HabitTrackerApp.pdb
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\obj\Debug\netcoreapp2.1\HabitTrackerApp.csproj.CoreCompileInputs.cache
+C:\Users\Broj 18\source\repos\HabitTrackerApp\HabitTrackerApp\obj\Debug\netcoreapp2.1\HabitTrackerApp.genruntimeconfig.cache
