@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Broj 18\\source\\repos\\HabitTrackerApp\\HabitTrackerApp\\HabitTrackerApp.csproj": {}
+    "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\HabitTrackerApp\\HabitTrackerApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Broj 18\\source\\repos\\HabitTrackerApp\\HabitTrackerApp\\HabitTrackerApp.csproj": {
+    "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\HabitTrackerApp\\HabitTrackerApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Broj 18\\source\\repos\\HabitTrackerApp\\HabitTrackerApp\\HabitTrackerApp.csproj",
+        "projectUniqueName": "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\HabitTrackerApp\\HabitTrackerApp.csproj",
         "projectName": "HabitTrackerApp",
-        "projectPath": "C:\\Users\\Broj 18\\source\\repos\\HabitTrackerApp\\HabitTrackerApp\\HabitTrackerApp.csproj",
+        "projectPath": "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\HabitTrackerApp\\HabitTrackerApp.csproj",
         "packagesPath": "C:\\Users\\Broj 18\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Broj 18\\source\\repos\\HabitTrackerApp\\HabitTrackerApp\\obj\\",
+        "outputPath": "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\HabitTrackerApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Broj 18\\AppData\\Roaming\\NuGet\\NuGet.Config",

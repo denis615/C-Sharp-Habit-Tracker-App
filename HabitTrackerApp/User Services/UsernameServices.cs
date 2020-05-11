@@ -5,6 +5,9 @@ using HabitTrackerApp;
 namespace HabitTrackerApp.Services
 {
    public class UsernameServices
+
+
+        //Method to check if the length of the Username
     {   public static bool CheckUserNameLength(string user)
         {
 
@@ -22,6 +25,7 @@ namespace HabitTrackerApp.Services
 
         }
 
+        //Method to check if the First Character of the Username has a number
         public static bool firstNumCheck(string user)
 
            
@@ -43,18 +47,22 @@ namespace HabitTrackerApp.Services
 
         }
 
-        public static int   firstChoosingCheck( string choose)
+        //Method to check the first Choosing of the User when it runs the app
+        public static int   firstChoosingCheck( string firstChoosing)
         {
-            if (choose == "1")
+            if (firstChoosing == "1")
             {
                 return 1;
             }
-            if (choose == "2")
+            if (firstChoosing == "2")
             {
                 return 2;
             }
             else
             {
+                
+               
+                    
                 
                 return -1;
                 

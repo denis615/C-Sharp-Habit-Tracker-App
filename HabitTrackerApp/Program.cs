@@ -2,24 +2,29 @@
 using System.IO;
 using HabitTrackerApp.Services;
 using HabitTrackerApp.Domains;
+using HabitTrackerApp.Console_Methods;
 namespace HabitTrackerApp
 {
     class Program
     {
         static void Main(string[] args)
-        {
+        {   
+            
+            // A string which I needed to use a lot, so I declared it here in order to use it more down
             string anyKey = "Press any Key to continue";
 
-            Console.WriteLine("Welcome to the Habit Tracker App");
+        firstCheck:
+            Console.Clear();
+             Console.WriteLine("Welcome to the Habit Tracker App");
 
 
-
+            
             Console.WriteLine("Press 1 to create a new Account");
             Console.WriteLine("Pres 2 to Log in to the already existing account");
             string firstChoosing = Console.ReadLine();
-
+            #region CreateUser
             while (true) { 
-
+                //If the User Decides to create a user
             if (UsernameServices.firstChoosingCheck(firstChoosing) == 1)
             {
                     User User1 = new User();
@@ -30,7 +35,19 @@ namespace HabitTrackerApp
                     {
                         while (true)
                         {
+
                             User1.UserName = UserName;
+                            //Creating our Database
+                            try
+                            {
+                                StreamWriter sw = File.CreateText($"{User1.UserName}.txt");
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e);
+                                Console.WriteLine("That username already Exists please choose a different one");
+                            }
+                            ConsoleMethods.GreenColor("UserName", anyKey);
                             Console.WriteLine("Please Enter your Name?");
                             string firstName = Console.ReadLine();
                             if (FirstName_Services.firstNameLengthCheck(firstName) == false)
@@ -38,26 +55,22 @@ namespace HabitTrackerApp
                                 if (FirstName_Services.IsDigit(firstName) == false)
                                 { Console.Clear();
                                     User1.FirstName = firstName;
-                                    Console.WriteLine("The name logged in successfully");
-                                    Console.WriteLine(anyKey);
-                                    Console.ReadLine();
+
+
+                                    ConsoleMethods.GreenColor("Name", anyKey);
                                     break;
                                 }
                             }
                             if (FirstName_Services.firstNameLengthCheck(firstName) == true)
                             {
-                                Console.Clear();
-                                Console.WriteLine("The Name must be longer than two characters");
-                                Console.WriteLine(anyKey);
-                                Console.ReadLine();
+                                string nameError = "The Name must be longer than two characters";
+                                ConsoleMethods.RedColor(nameError, anyKey);
                                 continue;
                             }
                             if (FirstName_Services.IsDigit(firstName) == true)
                             {
-                                Console.Clear();
-                                Console.WriteLine("The name shouldn't include a number");
-                                Console.WriteLine(anyKey);
-                                Console.ReadLine();
+                                string isNumDigit = "The name shouldn't include a number";
+                                ConsoleMethods.RedColor(isNumDigit, anyKey);
                                 continue;
                             }
                         }
@@ -72,26 +85,20 @@ namespace HabitTrackerApp
                                 {
                                     Console.Clear();
                                     User1.LastName = lastName;
-                                    Console.WriteLine("The  Last name logged in successfully");
-                                    Console.WriteLine(anyKey);
-                                    Console.ReadLine();
+                                    ConsoleMethods.GreenColor("LastName", anyKey);
                                     break;
                                 }
                             }
                             if (FirstName_Services.firstNameLengthCheck(lastName) == true)
                             {
-                                Console.Clear();
-                                Console.WriteLine("The Name must be longer than two characters");
-                                Console.WriteLine(anyKey);
-                                Console.ReadLine();
+                                string lastNameLenghtError = "The  Last Name must be longer than two characters";
+                                ConsoleMethods.RedColor(lastNameLenghtError, anyKey);
                                 continue;
                             }
                             if (FirstName_Services.IsDigit(lastName) == true)
                             {
-                                Console.Clear();
-                                Console.WriteLine("The name shouldn't include a number");
-                                Console.WriteLine(anyKey);
-                                Console.ReadLine();
+                                string lastNameNumError = "The name shouldn't include a number";
+                                ConsoleMethods.RedColor(lastNameNumError, anyKey);
                                 continue;
                             }
                         }
@@ -102,17 +109,13 @@ namespace HabitTrackerApp
                             {
                                 Console.Clear();
                                 User1.Password = userPassword;
-                                Console.WriteLine("Password Logged Successfully");
-                                Console.WriteLine(anyKey);
-                                Console.ReadLine();
+                                ConsoleMethods.GreenColor("Password", anyKey);
                                 break;
                             }
                             if (Password_Services.PasswordLength(userPassword) == false || Password_Services.PasswordDigit(userPassword) == false)
                             {
-                                Console.Clear();
-                                Console.WriteLine("Password Should be at least 6 characters long, and include one number");
-                                Console.WriteLine(anyKey);
-                                Console.ReadLine();
+                                string passwordError = "Password Should be at least 6 characters long, and include one number";
+                                ConsoleMethods.RedColor(passwordError, anyKey);
                                 continue;
                             }
 
@@ -127,18 +130,19 @@ namespace HabitTrackerApp
 
                             if (BirthdayServices.CalculAgeFormat(birthday) == false)
                             {
-                                Console.Clear();
-                                Console.WriteLine("Please Follow the MM/DD/YYYY Format");
-                                Console.WriteLine(anyKey);
-                                Console.ReadLine();
+                                string birthDayError = "Please Follow the MM/DD/YYYY Format";
+                                ConsoleMethods.RedColor(birthDayError, anyKey);
                                 continue;
                             }
                             else
                             {
                                  
                                 if(BirthdayServices.RealAge(birthday)<5|| BirthdayServices.RealAge(birthday) > 120)
-                                    { 
+                                    {
+                                    Console.ForegroundColor = ConsoleColor.Red;    
                                         Console.WriteLine($"Your Age is {BirthdayServices.RealAge(birthday)} and you are not allowed to use this app");
+
+                                    Console.ResetColor();
                                     Environment.Exit(0);
                                     }
 
@@ -147,7 +151,7 @@ namespace HabitTrackerApp
                                     Console.Clear();
                                     DateTime userBirthday = DateTime.Parse(birthday);
                                     User1.DateOfBirth = userBirthday;
-                                    Console.WriteLine("Your Birthday Has been logged Successfully");
+                                    ConsoleMethods.GreenColor("BirthDay", anyKey);
                                 }
 
 
@@ -157,28 +161,33 @@ namespace HabitTrackerApp
                           
                           
                         }
+                        
                         Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("The Username with these information has been created:");
                         Console.WriteLine($"Name: {User1.FirstName}");
                         Console.WriteLine($"Last Name: {User1.LastName}");
                         Console.WriteLine($"UserName:  {User1.UserName}");
-                        Console.WriteLine($"Date of Birth:  {User1.DateOfBirth}");
+                        Console.WriteLine($"Date of Birth:  {User1.DateOfBirth:MM/dd/yyyy}");
                         Console.WriteLine(anyKey);
+                        Console.ResetColor();
+                      
+                       
                         Console.ReadLine();
-                        break;
+
+                        
+                        goto firstCheck;
                     }
 
                     
                     if (UsernameServices.CheckUserNameLength(UserName)==true||UsernameServices.firstNumCheck(UserName)==true)
                     {
-                        Console.WriteLine("The Username must be at least 6 characters Long and the First Character Shouldn't include a number.");
-                        Console.WriteLine("Press Any Key To Continue");
-                        Console.ReadLine();
+                        string UsernameError = "The Username must be at least 6 characters Long and the First Character Shouldn't include a number.";
+                        ConsoleMethods.RedColor(UsernameError, anyKey);
                         continue;
                     }
 
-                Console.WriteLine("Hello World");
-                    break;
+                
             }
             if (UsernameServices.firstChoosingCheck(firstChoosing) == 2)
             {
@@ -187,25 +196,31 @@ namespace HabitTrackerApp
             }
             if (UsernameServices.firstChoosingCheck(firstChoosing) == -1)
             {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Please choose Either 1 or 2 ");
+                    Console.ResetColor();
+                    Console.WriteLine("Press Any Key to Continue");
+                    Console.ReadLine();
+                    Console.Clear();
                     Console.WriteLine("Press 1 to create a new Account");
                     Console.WriteLine("Pres 2 to Log in to the already existing account");
                     firstChoosing = Console.ReadLine();
+
                     continue;
                     
             }
 
             }
 
-            
-           
+            #endregion
+
 
         }
-           
-           
-           
 
-        }
+
+
+
+    }
     }
 
 

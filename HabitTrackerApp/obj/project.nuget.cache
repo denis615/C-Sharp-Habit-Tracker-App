@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dNklGiWscK8nBzwhoWzIkUJ8qExkNH2ro9ZS+q8Vbh1GLoPeDetfvS76RFdKstu/Sr8s9Ha3x9UniCydnIkcdQ==",
+  "dgSpecHash": "lAYdHXJ837GzMyT6o+I0006KDmohwAW6Ysfvu8Rw1i0Cx4pUhOoYA5PQlwH6+OWyJXk1VwEEAn+H6tKqI50vLA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Broj 18\\source\\repos\\HabitTrackerApp\\HabitTrackerApp\\HabitTrackerApp.csproj",
+  "projectFilePath": "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\HabitTrackerApp\\HabitTrackerApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Broj 18\\.nuget\\packages\\microsoft.netcore.app\\2.1.0\\microsoft.netcore.app.2.1.0.nupkg.sha512",
     "C:\\Users\\Broj 18\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.1.0\\microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",

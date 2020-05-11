@@ -4,27 +4,30 @@ using System.Text;
 
 namespace HabitTrackerApp.Services
 {
-    class FirstName_Services
+    class Password_Services
     {
-        public static bool firstNameLengthCheck(string firstName)
+
+        //Method to check the length of the Password
+        public static bool PasswordLength(string password)
         {
-            
-            if (firstName.Length < 2)
-            {
-                return true;
-            }
-            else
+            if (password.Length < 6)
             {
                 return false;
             }
-            
+            else
+            {
+                return true;
+            }
         }
-        public  static bool IsDigit(string firstName)
+
+
+        //Method to check if there is  number in the password
+        public static bool PasswordDigit(string password)
         {
             int j;
-            char[] firstChar = firstName.ToCharArray();
+            char[] firstChar = password.ToCharArray();
             bool isANumber;
-          for(int i = 0; i < firstChar.Length; i++)
+            for (int i = 0; i < firstChar.Length; i++)
             {
                 string convertingToString = firstChar[i].ToString();
 
@@ -36,11 +39,6 @@ namespace HabitTrackerApp.Services
             }
 
             return false;
-
-            
-         
         }
-
-
     }
 }

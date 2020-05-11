@@ -6,6 +6,8 @@ namespace HabitTrackerApp.Services
 {
     class BirthdayServices
     {
+
+        //Method to Calculate if the Format of the MM//DD/YYYY Is correct
        public static bool CalculAgeFormat(string birthday)
         {
             DateTime dob;
@@ -27,6 +29,8 @@ namespace HabitTrackerApp.Services
 
 
         }
+
+        //Method to calculcate the age of the user
         public static int RealAge(string birthday)
         {
             DateTime now = DateTime.Now;
