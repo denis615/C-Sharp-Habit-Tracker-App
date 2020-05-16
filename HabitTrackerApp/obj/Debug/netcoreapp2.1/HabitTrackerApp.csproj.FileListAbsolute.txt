@@ -22,3 +22,6 @@ C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\HabitTrackerApp\obj
 C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\HabitTrackerApp\obj\Debug\netcoreapp2.1\HabitTrackerApp.dll
 C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\HabitTrackerApp\obj\Debug\netcoreapp2.1\HabitTrackerApp.pdb
 C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\HabitTrackerApp\obj\Debug\netcoreapp2.1\HabitTrackerApp.genruntimeconfig.cache
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\HabitTrackerApp\bin\Debug\netcoreapp2.1\DataBaseServices.dll
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\HabitTrackerApp\bin\Debug\netcoreapp2.1\DataBaseServices.pdb
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\HabitTrackerApp\obj\Debug\netcoreapp2.1\HabitTrackerApp.csproj.CopyComplete

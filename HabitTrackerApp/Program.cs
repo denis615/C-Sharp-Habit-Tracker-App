@@ -3,57 +3,83 @@ using System.IO;
 using HabitTrackerApp.Services;
 using HabitTrackerApp.Domains;
 using HabitTrackerApp.Console_Methods;
+using System.Reflection.Metadata.Ecma335;
+using DataBaseServices;
+
+
 namespace HabitTrackerApp
 {
     class Program
     {
         static void Main(string[] args)
-        {   
-            
+        {
+            StreamWriter sw;
             // A string which I needed to use a lot, so I declared it here in order to use it more down
             string anyKey = "Press any Key to continue";
 
         firstCheck:
             Console.Clear();
-             Console.WriteLine("Welcome to the Habit Tracker App");
+            Console.ResetColor();
+            Console.WriteLine("Welcome to the Habit Tracker App");
 
 
-            
+
             Console.WriteLine("Press 1 to create a new Account");
             Console.WriteLine("Pres 2 to Log in to the already existing account");
             string firstChoosing = Console.ReadLine();
             #region CreateUser
-            while (true) { 
-                //If the User Decides to create a user
-            if (UsernameServices.firstChoosingCheck(firstChoosing) == 1)
+            while (true)
             {
+                //If the User Decides to create a user
+                if (UsernameServices.firstChoosingCheck(firstChoosing) == 1)
+                {
+                   
                     User User1 = new User();
                     Console.WriteLine("Please Choose Your UserName");
                     string UserName = Console.ReadLine();
-                   
-                    if (UsernameServices.CheckUserNameLength(UserName) == false && UsernameServices.firstNumCheck(UserName)==false)
+
+                    if (UsernameServices.CheckUserNameLength(UserName) == false && UsernameServices.firstNumCheck(UserName) == false)
                     {
                         while (true)
                         {
 
                             User1.UserName = UserName;
                             //Creating our Database
-                            try
+                            while (true)
                             {
-                                StreamWriter sw = File.CreateText($"{User1.UserName}.txt");
+                                try
+
+                                {
+                                    if (File.Exists($"{User1.UserName}.txt")) 
+                                    {
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        throw new System.ArgumentException("That username already Exists please choose a different one");
+
+                                    }
+                                    sw = File.CreateText($"{User1.UserName}.txt");
+
+                                    sw.WriteLine(User1.UserName);
+
+                                    ConsoleMethods.GreenColor("UserName", anyKey);
+
+                                    break;
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine(e.Message);
+
+                                    Console.ReadLine();
+                                    goto firstCheck;
+                                }
                             }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine(e);
-                                Console.WriteLine("That username already Exists please choose a different one");
-                            }
-                            ConsoleMethods.GreenColor("UserName", anyKey);
+
                             Console.WriteLine("Please Enter your Name?");
                             string firstName = Console.ReadLine();
                             if (FirstName_Services.firstNameLengthCheck(firstName) == false)
                             {
                                 if (FirstName_Services.IsDigit(firstName) == false)
-                                { Console.Clear();
+                                {
+                                    Console.Clear();
                                     User1.FirstName = firstName;
 
 
@@ -76,7 +102,7 @@ namespace HabitTrackerApp
                         }
                         while (true)
                         {
-                            
+
                             Console.WriteLine("Please Enter your Last Name?");
                             string lastName = Console.ReadLine();
                             if (FirstName_Services.firstNameLengthCheck(lastName) == false)
@@ -102,9 +128,10 @@ namespace HabitTrackerApp
                                 continue;
                             }
                         }
-                        while (true) { 
-                        Console.WriteLine("Please Enter your Password");
-                        string userPassword = Console.ReadLine();
+                        while (true)
+                        {
+                            Console.WriteLine("Please Enter your Password");
+                            string userPassword = Console.ReadLine();
                             if (Password_Services.PasswordLength(userPassword) == true && Password_Services.PasswordDigit(userPassword) == true)
                             {
                                 Console.Clear();
@@ -136,15 +163,15 @@ namespace HabitTrackerApp
                             }
                             else
                             {
-                                 
-                                if(BirthdayServices.RealAge(birthday)<5|| BirthdayServices.RealAge(birthday) > 120)
-                                    {
-                                    Console.ForegroundColor = ConsoleColor.Red;    
-                                        Console.WriteLine($"Your Age is {BirthdayServices.RealAge(birthday)} and you are not allowed to use this app");
+
+                                if (BirthdayServices.RealAge(birthday) < 5 || BirthdayServices.RealAge(birthday) > 120)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine($"Your Age is {BirthdayServices.RealAge(birthday)} and you are not allowed to use this app");
 
                                     Console.ResetColor();
                                     Environment.Exit(0);
-                                    }
+                                }
 
                                 else
                                 {
@@ -155,13 +182,13 @@ namespace HabitTrackerApp
                                 }
 
 
-                                
+
                                 break;
                             }
-                          
-                          
+
+
                         }
-                        
+
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("The Username with these information has been created:");
@@ -171,31 +198,32 @@ namespace HabitTrackerApp
                         Console.WriteLine($"Date of Birth:  {User1.DateOfBirth:MM/dd/yyyy}");
                         Console.WriteLine(anyKey);
                         Console.ResetColor();
-                      
-                       
+
+                        DataBaseWriter.DataBaseWriting(sw, User1.Password, User1.DateOfBirth, User1.FirstName, User1.LastName);
+
                         Console.ReadLine();
 
-                        
+
                         goto firstCheck;
                     }
 
-                    
-                    if (UsernameServices.CheckUserNameLength(UserName)==true||UsernameServices.firstNumCheck(UserName)==true)
+
+                    if (UsernameServices.CheckUserNameLength(UserName) == true || UsernameServices.firstNumCheck(UserName) == true)
                     {
                         string UsernameError = "The Username must be at least 6 characters Long and the First Character Shouldn't include a number.";
                         ConsoleMethods.RedColor(UsernameError, anyKey);
                         continue;
                     }
 
-                
-            }
-            if (UsernameServices.firstChoosingCheck(firstChoosing) == 2)
-            {
-                Console.WriteLine("Hello ANd Log in");
+
+                }
+                if (UsernameServices.firstChoosingCheck(firstChoosing) == 2)
+                {
+                    
                     break;
-            }
-            if (UsernameServices.firstChoosingCheck(firstChoosing) == -1)
-            {
+                }
+                if (UsernameServices.firstChoosingCheck(firstChoosing) == -1)
+                {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Please choose Either 1 or 2 ");
                     Console.ResetColor();
@@ -207,20 +235,23 @@ namespace HabitTrackerApp
                     firstChoosing = Console.ReadLine();
 
                     continue;
-                    
-            }
+
+                }
 
             }
 
             #endregion
 
 
+            FindUserService.FindUserinDatabase();
+
+
+
+
+
+            }
         }
-
-
-
-
     }
-    }
+
 
 

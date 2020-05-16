@@ -207,16 +207,6 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
-      },
-      "DataBaseServices/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "compile": {
-          "bin/placeholder/DataBaseServices.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataBaseServices.dll": {}
-        }
       }
     }
   },
@@ -691,16 +681,10 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
-    },
-    "DataBaseServices/1.0.0": {
-      "type": "project",
-      "path": "../DataBaseServices/DataBaseServices.csproj",
-      "msbuildProject": "../DataBaseServices/DataBaseServices.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "DataBaseServices >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -710,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\HabitTrackerApp\\HabitTrackerApp.csproj",
-      "projectName": "HabitTrackerApp",
-      "projectPath": "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\HabitTrackerApp\\HabitTrackerApp.csproj",
+      "projectUniqueName": "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\DataBaseServices\\DataBaseServices.csproj",
+      "projectName": "DataBaseServices",
+      "projectPath": "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\DataBaseServices\\DataBaseServices.csproj",
       "packagesPath": "C:\\Users\\Broj 18\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\HabitTrackerApp\\obj\\",
+      "outputPath": "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\DataBaseServices\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Broj 18\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -729,11 +713,7 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {
-            "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\DataBaseServices\\DataBaseServices.csproj": {
-              "projectPath": "C:\\Users\\Broj 18\\source\\repos\\CP07\\C-Sharp-Habit-Tracker-App\\DataBaseServices\\DataBaseServices.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

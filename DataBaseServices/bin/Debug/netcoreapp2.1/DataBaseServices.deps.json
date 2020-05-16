@@ -6,14 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "HabitTrackerApp/1.0.0": {
-        "dependencies": {
-          "DataBaseServices": "1.0.0"
-        },
-        "runtime": {
-          "HabitTrackerApp.dll": {}
-        }
-      },
       "DataBaseServices/1.0.0": {
         "runtime": {
           "DataBaseServices.dll": {}
@@ -22,11 +14,6 @@
     }
   },
   "libraries": {
-    "HabitTrackerApp/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "DataBaseServices/1.0.0": {
       "type": "project",
       "serviceable": false,

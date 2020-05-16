@@ -1,0 +1,9 @@
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\DataBaseServices\bin\Debug\netcoreapp2.1\DataBaseServices.deps.json
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\DataBaseServices\bin\Debug\netcoreapp2.1\DataBaseServices.dll
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\DataBaseServices\bin\Debug\netcoreapp2.1\DataBaseServices.pdb
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\DataBaseServices\obj\Debug\netcoreapp2.1\DataBaseServices.csprojAssemblyReference.cache
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\DataBaseServices\obj\Debug\netcoreapp2.1\DataBaseServices.csproj.CoreCompileInputs.cache
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\DataBaseServices\obj\Debug\netcoreapp2.1\DataBaseServices.AssemblyInfoInputs.cache
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\DataBaseServices\obj\Debug\netcoreapp2.1\DataBaseServices.AssemblyInfo.cs
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\DataBaseServices\obj\Debug\netcoreapp2.1\DataBaseServices.dll
+C:\Users\Broj 18\source\repos\CP07\C-Sharp-Habit-Tracker-App\DataBaseServices\obj\Debug\netcoreapp2.1\DataBaseServices.pdb
