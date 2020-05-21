@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
-using HabitTrackerApp.Services;
-using HabitTrackerApp.Domains;
+﻿using DataBaseServices;
 using HabitTrackerApp.Console_Methods;
-using System.Reflection.Metadata.Ecma335;
-using DataBaseServices;
-
+using HabitTrackerApp.Domains;
+using HabitTrackerApp.Services;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace HabitTrackerApp
 {
@@ -33,7 +32,7 @@ namespace HabitTrackerApp
                 //If the User Decides to create a user
                 if (UsernameServices.firstChoosingCheck(firstChoosing) == 1)
                 {
-                   
+
                     User User1 = new User();
                     Console.WriteLine("Please Choose Your UserName");
                     string UserName = Console.ReadLine();
@@ -50,7 +49,7 @@ namespace HabitTrackerApp
                                 try
 
                                 {
-                                    if (File.Exists($"{User1.UserName}.txt")) 
+                                    if (File.Exists($"{User1.UserName}.txt"))
                                     {
                                         Console.ForegroundColor = ConsoleColor.Red;
                                         throw new System.ArgumentException("That username already Exists please choose a different one");
@@ -59,9 +58,9 @@ namespace HabitTrackerApp
                                     sw = File.CreateText($"{User1.UserName}.txt");
 
                                     sw.WriteLine(User1.UserName);
-
+                                    sw.Close();
                                     ConsoleMethods.GreenColor("UserName", anyKey);
-
+                                    
                                     break;
                                 }
                                 catch (Exception e)
@@ -90,6 +89,11 @@ namespace HabitTrackerApp
                             if (FirstName_Services.firstNameLengthCheck(firstName) == true)
                             {
                                 string nameError = "The Name must be longer than two characters";
+                                if (File.Exists($"{User1.UserName}.txt"))
+                                {
+                                   File.Delete($"{User1.UserName}.txt");
+                                    sw.Close();
+                                }
                                 ConsoleMethods.RedColor(nameError, anyKey);
                                 continue;
                             }
@@ -97,6 +101,11 @@ namespace HabitTrackerApp
                             {
                                 string isNumDigit = "The name shouldn't include a number";
                                 ConsoleMethods.RedColor(isNumDigit, anyKey);
+                                if (File.Exists($"{User1.UserName}.txt"))
+                                {
+                                    File.Delete($"{User1.UserName}.txt");
+                                    sw.Close();
+                                }
                                 continue;
                             }
                         }
@@ -119,12 +128,22 @@ namespace HabitTrackerApp
                             {
                                 string lastNameLenghtError = "The  Last Name must be longer than two characters";
                                 ConsoleMethods.RedColor(lastNameLenghtError, anyKey);
+                                if (File.Exists($"{User1.UserName}.txt"))
+                                {
+                                    File.Delete($"{User1.UserName}.txt");
+                                    sw.Close();
+                                }
                                 continue;
                             }
                             if (FirstName_Services.IsDigit(lastName) == true)
                             {
                                 string lastNameNumError = "The name shouldn't include a number";
                                 ConsoleMethods.RedColor(lastNameNumError, anyKey);
+                                if (File.Exists($"{User1.UserName}.txt"))
+                                {
+                                    File.Delete($"{User1.UserName}.txt");
+                                    sw.Close();
+                                }
                                 continue;
                             }
                         }
@@ -191,19 +210,15 @@ namespace HabitTrackerApp
 
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Green;
+                        DataBaseWriter.DataBaseWriting(User1.UserName,User1.Password, User1.DateOfBirth, User1.FirstName, User1.LastName);
                         Console.WriteLine("The Username with these information has been created:");
                         Console.WriteLine($"Name: {User1.FirstName}");
                         Console.WriteLine($"Last Name: {User1.LastName}");
                         Console.WriteLine($"UserName:  {User1.UserName}");
                         Console.WriteLine($"Date of Birth:  {User1.DateOfBirth:MM/dd/yyyy}");
-                        Console.WriteLine(anyKey);
                         Console.ResetColor();
-
-                        DataBaseWriter.DataBaseWriting(sw, User1.Password, User1.DateOfBirth, User1.FirstName, User1.LastName);
-
+                        Console.WriteLine(anyKey);
                         Console.ReadLine();
-
-
                         goto firstCheck;
                     }
 
@@ -219,7 +234,7 @@ namespace HabitTrackerApp
                 }
                 if (UsernameServices.firstChoosingCheck(firstChoosing) == 2)
                 {
-                    
+
                     break;
                 }
                 if (UsernameServices.firstChoosingCheck(firstChoosing) == -1)
@@ -234,24 +249,42 @@ namespace HabitTrackerApp
                     Console.WriteLine("Pres 2 to Log in to the already existing account");
                     firstChoosing = Console.ReadLine();
 
-                    continue;
+                    
 
                 }
 
+
+
             }
 
-            #endregion
+        #endregion
 
 
-            FindUserService.FindUserinDatabase();
+        GetUserAndPassword:
+            Console.Clear();
+            Console.WriteLine("Please Enter your Username");
+            
+            string getUser = Console.ReadLine();
+            Console.WriteLine("Please Enter your Password?");
+            string password = Console.ReadLine();
 
+            while (true)
+            {  
+                if (FindUserService.FindUserinDatabaseCheckPassword(getUser, password) == true)
+                {
+                    break;
+                }
 
-
-
-
+                if (FindUserService.FindUserinDatabaseCheckPassword(getUser, password) == false)
+                {
+                       
+                    goto GetUserAndPassword;
+                }
+                    
             }
         }
     }
+}
 
 
 

@@ -40,11 +40,11 @@ namespace HabitTrackerApp.Services
 
             
 
-            if (now.Month>userBirthday.Month)
+            if (now.Month<userBirthday.Month)
             {
                  years--;
             }
-            if (now.Month == userBirthday.Month && userBirthday.Day>now.Day)
+            if (now.Month == userBirthday.Month && userBirthday.Day<now.Day)
             {
                  years--;
             }

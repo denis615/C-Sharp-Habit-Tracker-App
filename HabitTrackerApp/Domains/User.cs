@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using HabitTrackerApp;
-
+using DataBaseServices;
 namespace HabitTrackerApp.Domains
 {
-    public class User
+    public  class User
     {
         //User Class so that we can create users from here
         public int ID { get; set; }
